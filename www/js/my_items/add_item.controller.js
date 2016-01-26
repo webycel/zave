@@ -37,7 +37,6 @@ function AddItemCtrl(DatabaseService, $rootScope, $timeout) {
 		DatabaseService.get('retailer', true)
 			.then(function(result) {
 
-				console.log(result);
 				vm.retailers = result.rows;
 				$timeout();
 
