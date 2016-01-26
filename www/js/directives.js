@@ -1,3 +1,3 @@
-retaileredApp.directive('blankDirective', [function(){
+zaveApp.directive('blankDirective', [function(){
 
 }]);

@@ -1,4 +1,4 @@
-retaileredApp.config(function($stateProvider, $urlRouterProvider) {
+zaveApp.config(function($stateProvider, $urlRouterProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router

@@ -5,33 +5,57 @@
  * @name jstestApp.controller:AddItemCtrl
  * @description
  * # AddItemCtrl
- * Controller of the retailered app
+ * Controller of the zave app
  */
-retaileredApp.controller('AddItemCtrl', AddItemCtrl);
+zaveApp.controller('AddItemCtrl', AddItemCtrl);
 
-AddItemCtrl.$inject = ['$localStorage'];
+AddItemCtrl.$inject = ['DatabaseService', '$rootScope', '$timeout'];
 
-function AddItemCtrl($localStorage) {
+function AddItemCtrl(DatabaseService, $rootScope, $timeout) {
 
 	var vm = this;
 
 	vm.newItem = {
-		product: '123',
+		product: 'T422749',
 		productSrc: 'ID',
 		notifySales: true,
 		notifyStock: false,
 		retailer: 'mns'
 	};
+	vm.retailers = {};
 
 	vm.addItem = addItem;
 
-	function addItem() {
-		retaileredDatabase.createDocument(vm.newItem).then(function(result) {
-        // The document was saved
+	$rootScope.$on('DatabaseService:getBaseDataSuccess', function () {
+    init();
+  });
+
+	function init() {
+
+    console.log('there');
+
+		DatabaseService.get('retailer', true)
+			.then(function(result) {
+
 				console.log(result);
-    }, function(error) {
-        // There was an error saving the document
-    });
+				vm.retailers = result.rows;
+				$timeout();
+
+			}).catch(function (err) {
+				console.log(err);
+			});
+
+	}
+
+	function addItem() {
+
+		var item = vm.newItem;
+
+		item["_id"] = Date.now();
+
+		console.log(item);
+
+		// DatabaseService.save(item);
 
 	}
 

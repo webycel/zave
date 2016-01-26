@@ -7,7 +7,7 @@
  * # MyItemsCtrl
  * Controller of the retailered app
  */
-retaileredApp.controller('MyItemsCtrl', MyItemsCtrl);
+zaveApp.controller('MyItemsCtrl', MyItemsCtrl);
 
 MyItemsCtrl.$inject = ['$scope'];
 

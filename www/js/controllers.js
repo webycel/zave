@@ -1,4 +1,4 @@
-retaileredApp.controller('addItemCtrl', function($scope) {
+zaveApp.controller('addItemCtrl', function($scope) {
 
 })
 

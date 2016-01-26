@@ -21,7 +21,16 @@
 
           <p>Please select the retailer of your product</p>
 
-          <div class="row retailers" ng-class="{ unselected: !vm.newItem.retailer }">
+          <div class="row retailers" >
+            <div class="col col-33 retailers__item" ng-repeat="retailer in vm.retailers" ng-class="{ 'retailers__item--unselected': !vm.newItem.retailer }">
+              <label>
+                <input type="radio" class="hide" name="retailer" value="{{retailer.doc.name_code}}" ng-model="vm.newItem.retailer" />
+                <img alt="{{retailer.doc.name + ' logo'}}" ng-src="{{'img/' + retailer.doc.logo}}" />
+              </label>
+            </div>
+          </div>
+
+          <!-- <div class="row retailers" ng-class="{ unselected: !vm.newItem.retailer }">
             <div class="col col-50">
               <label>
                 <input type="radio" class="hide" name="retailer" value="mns" ng-model="vm.newItem.retailer" />
@@ -51,7 +60,7 @@
                 <img src="img/QGSYBUXLSBSqIhocAjIa_next.jpg" />
               </label>
             </div>
-          </div>
+          </div> -->
 
           <button type="submit" class="button button-dark button-block button-full">Add me!</button>
 

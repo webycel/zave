@@ -9738,20 +9738,25 @@ a.button {
 .has-tabs-top {
   top: 60px; }
 
+.row {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
 .spacer {
   width: 100%;
   height: 1em; }
 
-.retailers label {
-  display: inline-block; }
-
-.retailers img {
-  width: 100%;
-  vertical-align: middle;
-  opacity: 0.3; }
-
-.retailers.unselected img {
-  opacity: 1; }
-
-.retailers input[type="radio"]:checked + img {
-  opacity: 1; }
+.retailers {
+  align-items: center; }
+  .retailers__item {
+    margin-bottom: 1em; }
+    .retailers__item--unselected img {
+      opacity: 1; }
+  .retailers label {
+    display: inline-block; }
+  .retailers img {
+    width: 100%;
+    vertical-align: middle;
+    opacity: 0.3; }
+  .retailers input[type="radio"]:checked + img {
+    opacity: 1; }

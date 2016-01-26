@@ -1,4 +1,13 @@
 .retailers {
+	align-items: center;
+
+	&__item {
+		margin-bottom: 1em;
+
+		&--unselected img {
+			opacity: 1;
+		}
+	}
 
 	label {
 		display: inline-block;
@@ -8,10 +17,6 @@
 		width: 100%;
 		vertical-align: middle;
 		opacity: 0.3;
-	}
-
-	&.unselected img {
-		opacity: 1;
 	}
 
 	input[type="radio"]:checked + img {

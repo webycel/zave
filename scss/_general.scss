@@ -5,7 +5,10 @@
 .has-tabs-top {
 	top: 60px;
 }
-
+.row {
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap ;
+}
 
 
 .spacer {

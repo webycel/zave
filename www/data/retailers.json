@@ -1,0 +1,36 @@
+{
+  "retailers": [
+    {
+      "type": "retailer",
+      "_id": "retailer:100",
+      "name": "Marks & Spencer",
+      "name_short": "M&S",
+      "name_code": "mns",
+      "logo": "WT3HhE0LTEaXbaaf2gXu_NEW-LOGO-SEPT-14.jpg"
+    },
+    {
+      "type": "retailer",
+      "_id": "retailer:101",
+      "name": "John Lewis",
+      "name_short": "John Lewis",
+      "name_code": "johnlewis",
+      "logo": "hrGMlYSVSpiFqVJfxKgF_john_lewis_logo.jpg"
+    },
+    {
+      "type": "retailer",
+      "_id": "retailer:102",
+      "name": "Asos",
+      "name_short": "Asos",
+      "name_code": "asos",
+      "logo": "YH9av9qKTOF6nZncBy4J_asos.jpg"
+    },
+    {
+      "type": "retailer",
+      "_id": "retailer:103",
+      "name": "Next",
+      "name_short": "Next",
+      "name_code": "next",
+      "logo": "QGSYBUXLSBSqIhocAjIa_next.jpg"
+    }
+  ]
+}
