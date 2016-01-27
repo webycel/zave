@@ -1,8 +1,10 @@
 <ion-view title="Add Item">
-    <ion-content overflow-scroll="true" padding="true" class="has-header">
+    <ion-content overflow-scroll="true" padding="true" class="has-header additem">
+
+      <div class="additem__step1" ng-show="vm.step == 1">
         <p>Please enter the product ID or the URL of the product page</p>
 
-        <form ng-submit="vm.addItem()">
+        <form ng-submit="vm.searchItem()">
 
           <div class="button-bar">
               <input type="button" class="button button-block" ng-class="{ 'button-dark': vm.newItem.productSrc == 'ID' }" ng-click="vm.newItem.productSrc = 'ID'" value="Product ID" />
@@ -22,17 +24,81 @@
           <p>Please select the retailer of your product</p>
 
           <div class="row retailers" >
-            <div class="col col-33 retailers__item" ng-repeat="retailer in vm.retailers" ng-class="{ 'retailers__item--unselected': !vm.newItem.retailer }">
+            <div class="col col-33 retailers__item" ng-repeat="retailer in vm.retailers" ng-class="{ 'retailers__item--unselected': vm.newItem.retailer != retailer }">
               <label>
-                <input type="radio" class="hide" name="retailer" value="{{retailer.doc.name_code}}" ng-model="vm.newItem.retailer" />
+                <input type="radio" class="hide" name="retailer" ng-value="retailer" ng-model="vm.newItem.retailer" />
                 <img alt="{{retailer.doc.name + ' logo'}}" ng-src="{{'img/' + retailer.doc.logo}}" />
               </label>
             </div>
           </div>
 
-          <button type="submit" class="button button-dark button-block button-full">Add me!</button>
+          <button type="submit" class="button button-dark button-block button-full">Search product</button>
 
         </form>
+      </div>
+
+
+      <div class="additem__step2" ng-show="vm.step == 2">
+
+        <button class="button button-block button-dark" ng-click="vm.step = 1">Go back</button>
+
+        <form ng-submit="vm.addItem()">
+
+          <p>Please validate it the correct product has been fetched and optionally choose a size and colour.</p>
+
+          <div class="list card">
+
+            <div class="item item-avatar">
+              <img ng-src="img/{{vm.productDetails.retailer.doc.logo}}" />
+              <h2>{{vm.productDetails.name}}</h2>
+              <p>{{vm.productDetails.productID}}</p>
+            </div>
+
+            <div class="item item-image">
+              <img ng-src="{{vm.productDetails.productImage}}" />
+            </div>
+
+            <span class="item item-icon-left assertive">
+              <i class="icon ion-pricetag"></i> {{ vm.productDetails.price }}
+            </span>
+
+            <span class="item item-icon-left">
+              <i class="icon ion-android-color-palette"></i>
+
+              <ul class="additem__colours">
+                <li ng-repeat="colour in vm.productDetails.colours">
+                  <label style="background-image: url({{ colour.image }});" ng-class="{ 'selected': vm.productDetails.selectedColour == colour }">
+                    <input type="radio" ng-value="colour" ng-model="vm.newItem.selectedColour" name="colour" class="hide" />
+                  </label>
+                </li>
+              </ul>
+
+            </span>
+
+            <div class="item item-icon-left">
+              <i class="icon ion-tshirt"></i>
+              <div class="list">
+
+                <label class="item item-input item-select">
+                  <div class="input-label">Size</div>
+                  <select ng-model="vm.newItem.selectedsize">
+                    <option value="" selected="selected">Please choose</option>
+                    <option ng-value="size" ng-repeat="(size, data) in vm.productDetails.sizes[vm.newItem.selectedColour.sizeKey]">
+                      {{ size }}
+                    </option>
+                  </select>
+                </label>
+
+              </div>
+            </div>
+
+          </div>
+
+          <button type="submit" class="button button-dark button-block button-full">Add item</button>
+
+        </form>
+
+      </div>
 
     </ion-content>
 </ion-view>

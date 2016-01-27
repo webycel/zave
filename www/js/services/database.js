@@ -67,16 +67,13 @@ function DatabaseService($http, $rootScope) {
 
       return database.allDocs({
         include_docs: true,
-        startkey: item
-        // endkey: 'retailer:9999999'
+        startkey: item,
+        endkey: item + ':xxxxxxxxxx'
       });
 
     } else {
 
       return database.get(item);
-      // .then(function(doc) {
-      //   console.log(doc);
-      // });
 
     }
 

@@ -1,5 +1,6 @@
 // Ionic zave App
 var APP_NAME = 'zave';
+var SCRAPER_API_URL = 'http://192.168.1.4:8081';
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'zave' is the name of this angular module example (also set in a <body> attribute in index.html)
@@ -28,7 +29,7 @@ zaveApp.run(function($ionicPlatform, DatabaseService) {
 
       DatabaseService.validateBaseData();
 
-      console.log('hey');
+      // console.log('hey');
     }
 
   });

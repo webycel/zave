@@ -9746,6 +9746,20 @@ a.button {
   width: 100%;
   height: 1em; }
 
+.additem__step2 .item-avatar {
+  padding-left: 87px; }
+  .additem__step2 .item-avatar > img:first-child {
+    max-width: 55px;
+    border-radius: 0; }
+
+.additem__colours label {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #000; }
+  .additem__colours label.selected {
+    border: 1px solid #33cd5f; }
+
 .retailers {
   align-items: center; }
   .retailers__item {
